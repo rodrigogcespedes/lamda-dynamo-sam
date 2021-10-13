@@ -10,13 +10,13 @@ Los programas requeridos para correr la api son:
 
 Para correrla primero hace falta crear una network en docker, donde correr la correr la base de datos dynamo:
 
-`docker network create awslocal`
-`docker run --rm -p 8000:8000 --network awslocal --name dynamodb amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb`
+`docker network create awslocal
+docker run --rm -p 8000:8000 --network awslocal --name dynamodb amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb`
 
 Luego se debe clonar (o descargar como zip) este repositorio, instalamar las dependencias de aws y correr sam:
 
-`npm install --save aws-sdk`
-`sam local start-api --docker-network awslocal`
+`npm install --save aws-sdk
+sam local start-api --docker-network awslocal`
 
 Para crear la tabla se debe ingresar en el navegador a `localhost:8000/shell/` y en el cuadrado de la izquierda pegamos el texto del archivo `createTable.txt`.
 
@@ -26,9 +26,13 @@ GET /envios/pendientes
 PUT /envios/{idEnvio}/entregado
 POST /envios
 Con un body de la forma:
-`{
+```bash
+{
 "destino": "destino",
 "email": "email",
-}`
+}
+```
 
 Repositorio generado para la catedra de Computacion en la Nube, UTN-FRM, 2021
+Alumno: Rodrigo Cespedes
+Legajo: 45185
